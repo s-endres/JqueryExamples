@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <script>
+        function setBackgroundOnP() {
+            $("p").css("background-color", "red").css("color", "blue");
+            // or $("p").css({"background-color":"red","color":"blue"});
+        }
+        function removeStyle() {
+            $("p").removeAttr("style");
+        }
+        function findHidden() {
+            alert("Hiddgen: " + $("#hidden"));
+            $("button:last").prop('disabled', false);
+        }
+        function showHidden() {
+            $("#hidden").css("display", "inline");
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <p>blah blah blah blah blah blah blah</p>
+        <p>blah blah blah blah blah blah blah</p>
+        <p>blah blah blah blah blah blah blah</p>
+        <p>blah blah blah blah blah blah blah</p>
+        <p id="hidden" style="display:none">BOOM!</p>
+    </div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="setBackgroundOnP()">Set BG</button>
+        <button type="button" onclick="removeStyle()">Clear</button>
+    </div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="findHidden()">Get hidden</button>
+        <button type="button" onclick="showHidden()" disabled>Show hidden</button>
+    </div>
+</body>
+</html>

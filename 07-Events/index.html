@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <style>
+        .divBD{
+            border:solid 2px black;
+        }
+    </style>
+    <script>
+        /*
+            Eventos en Jquery
+            -on() -> Mas popular y el mas usado.
+            -off()
+            -bind() -> usado para atrapar un evento
+            -unbind()
+            -delegate()
+            -undelegated()
+            -one()
+            -live() -> pasa todo antes que se creen
+            -die()
+            -trigger()
+            -triggerHandler()
+
+
+        */
+        $(document).ready(function () {
+            $("div").on("click", function () {
+                console.log($(this).text());
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="divBD">
+        <p>BOOM1 a text for Demo</p>
+    </div>   
+    <div class="divBD">
+        <p>BOOM2 a text for Demo</p>
+    </div>   
+    <div class="divBD">
+        <p>BOOM3 a text for Demo</p>
+    </div>   
+    <div class="divBD">
+        <p>BOOM4 a text for Demo</p>
+    </div>   
+    <div style="margin-top:15px;">
+        <button type="button" onclick="izqADerecha()">De izq a der</button>
+        <button type="button" onclick="derAIzquierda()">De der a izq</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <script>
+        /*
+        Ejemplos de Selectores:
+            -Simple: $("selector");
+            -Multiple:
+                * $("select1,selector2,selectorN");
+                * $("element[attr='value'][attr='value2']");
+                Ex:
+                    $("element[name='NombreDelElemento']");
+            -Optener especifico de agrupacion:
+                * $("selector")[0];
+                * $("selector").get(0);
+            -Agregar elemento a una agrupacion, pero no al DOM
+                * $("selector").add("<div>Added content</div>");
+
+            -Selectores basicos
+                * $("*"); -> Selecciona Todo
+                * $("NombreElemento"); -> Selecciona todos los elementos con el mismo nombre.
+                * $("#ElementId"); -> Selecciona todos los elementos con el Id
+                * $(".class"); -> Selecciona todos los elementos con la clase
+
+            -Selectores por atributos
+                *$("selector[attr]"); -> Todos los que tengas el atributo
+                *$("selector[attr='value']"); -> Todos con el atributo igual al valor
+                *$("selector[attr^'value']"); -> Todos que comiencen con el valor
+                *$("selector[attr$'value']"); -> Todos los que terminen con el valor
+                *$("selector[attr*'value']"); -> 
+
+            -Herarquia
+                *$("papa hijo");
+                    Ex:
+                        $("Table tr");
+
+            -Posicionamiento
+                *$("element:first");
+                *$("element:last");
+                *$("element:last-child");
+
+            -Jquery Filters
+                *$(":button");
+                *$(":checkbox");
+                *$(":password");
+                *$(":submit");
+                *$(":text");
+                *$(":file");
+                *$(":contains(text)");
+                    Ex: http://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_sel_contains
+                *$(":not(selector)");
+
+
+        */
+        function getTable() {
+            alert("Table: " + $("table"));
+        }
+        function getTRow() {
+            alert("TRow: " + $("tr"));
+        }
+        function getTD() {
+            alert("TD: " + $("td"));
+        }
+        function getHs() {
+            alert("H1+H2: " + $("h1,h2"));
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>1</td><td>2</td>
+        </tr>
+        <tr>
+            <td>3</td><td>4</td>
+        </tr>
+    </table>
+    <div>
+        <h1>Soy el H1</h1>
+        <h2>Soy el H2</h2>
+    </div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="getTable()">Get Table</button>
+        <button type="button" onclick="getTRow()">Get Rows</button>
+        <button type="button" onclick="getTD()">Get Cells</button>
+        <button type="button" onclick="getHs()">Get Hs</button>
+    </div>
+</body>
+</html>

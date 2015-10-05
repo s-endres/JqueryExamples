@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <script>
+        /*
+        Ejemplos de manipulacion del DOM:
+            -Modificar Data de Elementos:
+                *$("p").text("text");
+                *$("p").html("text <em>text</em> test");
+                *$("div:first").text("boom");
+            -Dentro de Elementos
+                *$("content").appendTo("selector");
+                *$("content").prependTo("selector");
+                *$("selector").append("<li>Esto es despues</li>");
+                *$("selector").preppend("<li>Esto es antes</li>");
+            -Outside Elements
+                *$("selector").insertAfter("selector");
+                *$("selector").insertBefore("selector);
+
+                *$("selector").after("<li>esto es despues</li>");
+                *$("selector").before("<li>esto es antes</li>");
+                
+                *$("selector").before(content, function(index{});
+            -CLonar/Copiar Elementos
+                *$("selector").clone().appendTo("selector2");
+
+        */
+        function changeText() {
+            $("p").text("text");
+        }
+        function changeHtml() {
+            $("p").html("text <em>text</em> test");
+        }
+
+        //Insides
+        function appendLi() {
+            $("ul").append("<li>Blih</li>");
+        }
+        function prependLi() {
+            $("ul").prepend("<li>Bloh</li>");
+        }
+        function appendContent() {
+            $("p").appendTo("ul");
+        }
+
+        //Outsiders
+        function insertAfter() {
+            $("p").insertAfter("ul");
+        }
+        //Clone
+        function cloneMyP() {
+            $("p").clone().appendTo("ul");
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <p>blah blah blah blah blah blah blah</p>
+        <p>blah blah blah blah blah blah blah</p>
+        <p>blah blah blah blah blah blah blah</p>
+        <p>blah blah blah blah blah blah blah</p>
+    </div>
+    <div>
+        <ul>
+            <li>blah</li>
+            <li>bleh</li>
+        </ul>
+    </div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="changeText()">Set Text</button>
+        <button type="button" onclick="changeHtml()">Set Html</button>
+    </div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="appendLi()">Append in UL</button>
+        <button type="button" onclick="prependLi()">Prepend in UL</button>
+        <button type="button" onclick="appendContent()">Prepend Content in UL</button>
+    </div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="insertAfter()">insert After UL</button>
+    </div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="cloneMyP()">Clone P and Append</button>
+    </div>
+</body>
+</html>

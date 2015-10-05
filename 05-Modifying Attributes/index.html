@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <style>
+        .Error{
+            color:red;
+            font-size:25px;
+            border-color:blue;
+        }
+        .Success{
+            color:blueviolet;
+            font-size:30px;
+            border-color:yellow;
+        }
+        .bdColor{
+            background-color:orange;
+        }
+    </style>
+    <script>
+        /*
+        Ejemplos de manipulacion del DOM:
+            -Modificando atributos
+                *$("selector").attr("name","value"); -> Atributo
+                *$("selector").prop("name","value"); -> Propiedad
+                *$("selector").removeAttr("name");
+                *$("selector").removeProp("name");
+
+                *$("selector").attr("name",function(attr){
+                });
+                
+
+            -Classes
+                *$("selector").hasClass("className"); -> true or false
+                *$("selector").addClass("className");
+                *$("selector").addClass("className className2");
+                *$("selector").addClass("className").removeClass("className2");
+                *$("selector").removeClass("className");
+                *$("selector").removeClass("className className2");
+                *$("selector").toggleClass("className className2");
+
+            -Dimensiones
+                *$("selector").width("100px");
+                *$("selector").width();
+                *$("selector").height("100px");
+                *$("selector").width();
+                *$("selector").position();
+
+        */
+
+        //Classes
+        function addClass() {
+            $("p").addClass("Error");
+        }
+        function removeClass() {
+            $("p").removeClass();
+        }
+        function add2Classes() {
+            $("p").addClass("Success bdColor");
+        }
+
+        //Position
+        function getPosition() {
+            alert("Position: "+$("p").position().left);
+        }
+    </script>
+</head>
+<body>
+    <div id="content">
+        <p>BOOM a text for Demo</p>
+    </div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="addClass()">Add Class</button>
+        <button type="button" onclick="add2Classes()">Add 2 Classes</button>
+        <button type="button" onclick="removeClass()">Remove Class</button>
+    </div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="getPosition()">Get Position</button>
+    </div>
+</body>
+</html>
