@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <style>
+    </style>
+    <script>
+        /*
+            Form Events
+            -change() -> Cuando cambian los valores del elemento
+            -focus() -> Cuando el elemento tiene focus
+            -blur() -> cuando el elemento pierde el focus
+            -focusin() -> cuando el elemento o elementos nested reciben focus
+            -focusout() -> cuando el elemento pierde el focus
+            -select() -> cuando el usuario selecciona un texto dentro
+            -submit() -> cuando el usuario hace un submit del form
+
+
+
+        */
+        $(document).ready(function () {
+
+            $("#firstInput").change(function () {
+                console.log("It Changed D:!!");
+            });
+
+            $("#firstInput").focus(function () {
+                console.log("I got focus");
+            });
+
+            $("#firstInput").blur(function () {
+                console.log("I got focus OUT!");
+            });
+
+            $("#secondInput").select(function () {
+                console.log("Wow i got selected!");
+            });
+
+            $("#mySelect").change(function () {
+                console.log("New Value :D "+$(this).val());
+            });
+            
+            $("#myForm").submit(function () {
+                alert("Wow wow, why are you submitting ?");
+            });
+  
+        });
+
+    </script>
+</head>
+<body>
+    <form id="myForm">
+        First Input:<br>
+        <input type="text" id="firstInput" value="Mickey">
+        <br>
+        Second Input:<br>
+        <input type="text" id="secondInput" value="Mouse">
+        <br>
+        Options:<br>
+        <select id="mySelect">
+            <option value="-1">--Select--</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

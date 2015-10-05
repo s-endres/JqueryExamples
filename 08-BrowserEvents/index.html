@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <style>
+        #cheeseburger {
+          width:200px;
+          height:1200px;
+          border:solid 1px gray;
+          overflow-y:scroll;
+        }
+    </style>
+    <script>
+        /*
+            Browser Events
+            -error()
+            -resize()
+            -scroll()
+
+            -load() -> Cuando el elemento esta siendo cargado
+            -ready() -> Cuando el DOM fue establecido
+            -unload() -> Cuando el elemento no esta siendo cargado.
+        */
+        $(document).ready(function () {
+
+            $('#cheeseburger').on('scroll', function (ev) {
+                console.log('scrolling the cheeseburger div');
+            });
+
+            $(window)
+              .on('scroll', function (ev) {
+                  console.log('scrolling the page');
+              })
+              .on('resize', function (ev) {
+                  console.log('resizing the browser to ' + window.outerWidth + 'x' + window.outerHeight);
+              })
+              .error(function (ev) {
+                  console.log('an error occurred');
+              });
+
+            $('#throw').on('click', function (ev) {
+                throw "oops";
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <button id="throw">Throw an error</button>
+    <div id="cheeseburger">
+        <p>A cheeseburger is a hamburger topped with cheese. Traditionally, the slice of cheese is placed on top of the meat patty, but the burger can include many variations in structure, ingredients, and composition. The term itself is a portmanteau of the words "cheese" and "hamburger." The cheese is usually added to the cooking hamburger patty shortly before the patty is completely cooked which allows the cheese to melt. Cheeseburgers are often served with lettuce, tomato, onion, pickles, mustard, mayonnaise, ketchup, and occasionally bacon.</p>
+
+        <p>In fast food restaurants, the cheese used is typically processed cheese, but there are variations, such as cheddar, Swiss cheese, mozzarella cheese, blue cheese and pepper jack. When cheese is added to a burger the nutritional value of the burger can be changed substantially. For example, a slice of Cheddar cheese can add 113[1] calories and 4.5 grams of saturated fat to a burger.[2] Other types and amounts of cheese would have varying effects, depending on their nutritional content.</p>
+
+        <p>Adding cheese to hamburgers became popular in the late-1920s to mid-1930s, and there are several competing claims as to who created the first cheeseburger. Lionel Sternberger is reputed to have invented the cheeseburger in 1926 at the age of 16 when he was working as a fry cook at his father's Pasadena, California sandwich shop, "The Rite Spot," and "experimentally dropped a slab of American cheese on a sizzling hamburger."[3][4][5][6][7]</p>
+
+        <p>An early example of the cheeseburger appearing on a menu is a 1928 menu for the Los Angeles restaurant O'Dell's which listed a cheeseburger smothered with chili for 25 cents.[8]</p>
+
+        <p>Other restaurants say they invented the cheeseburger. For example, Kaelin's Restaurant in Louisville, Kentucky, said it invented the cheeseburger in 1934.[9] One year later, a trademark for the name "cheeseburger" was awarded to Louis Ballast of the Humpty Dumpty Drive-In in Denver, Colorado.[10] According to Steak 'n Shake archives, the restaurant's founder, Gus Belt, applied for a trademark on the word in the 1930s.</p>
+
+    </div>
+</body>
+</html>

@@ -13,7 +13,7 @@
         /*
             Eventos en Jquery
             -on() -> Mas popular y el mas usado.
-            -off()
+            -off() -> Remueve todos los eventos
             -bind() -> usado para atrapar un evento
             -unbind()
             -delegate()
@@ -23,14 +23,21 @@
             -die()
             -trigger()
             -triggerHandler()
-
-
         */
         $(document).ready(function () {
             $("div").on("click", function () {
-                console.log($(this).text());
+                console.log($(this).text());               
             });
         });
+        
+        function special() {
+            $("div[name='boomEspecial']").text("soy especial!")
+            $("div[name='boomEspecial']").trigger("click")
+        }
+
+        function turnOffDiv() {
+            $("div").off();
+        }
     </script>
 </head>
 <body>
@@ -43,12 +50,10 @@
     <div class="divBD">
         <p>BOOM3 a text for Demo</p>
     </div>   
-    <div class="divBD">
+    <div class="divBD" name="boomEspecial">
         <p>BOOM4 a text for Demo</p>
     </div>   
-    <div style="margin-top:15px;">
-        <button type="button" onclick="izqADerecha()">De izq a der</button>
-        <button type="button" onclick="derAIzquierda()">De der a izq</button>
-    </div>
+        <button type="button" onclick="turnOffDiv()">Turn off</button>
+        <button type="button" onclick="special()">Special</button>
 </body>
 </html>

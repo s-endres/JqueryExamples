@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <style>
+    </style>
+    <script>
+        /*
+            Keyboard Events
+            -keydown() -> Cuando la tecla es presionada
+            -keypress() -> cuando el Browser registra el input del key (Esc, Shift, Delete, etc [No lo activan])
+            -keyup() -> Cuando la tecla es soltada
+
+
+
+        */
+        $(document).ready(function () {
+
+            $("#firstInput").keypress(function (e) {
+                console.log("Wow you pressed the key: " + e.which + " that is: " + String.fromCharCode(e.which));
+            });
+
+            $("#secondInput").keyup(function (e) {
+                console.log("Wow you pressed the key: " + e.which + " that is: " + String.fromCharCode(e.which));
+            });
+
+            $("#thirdInput").keydown(function (e) {
+                console.log("Wow you pressed the key: " + e.which + " that is: " + String.fromCharCode(e.which));
+            });
+  
+        });
+
+    </script>
+</head>
+<body>
+    <form id="myForm">
+        First Input:<br>
+        <input type="text" id="firstInput" value="">
+        <br>
+        Second Input:<br>
+        <input type="text" id="secondInput" value="">
+        <br>        
+        Third Input:<br>
+        <input type="text" id="thirdInput" value="">
+        <br>
+        <br><br>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

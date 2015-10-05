@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <style>
+    </style>
+    <script>
+        /*
+            Keyboard Events
+            -click() -> 
+            -dblclick() -> 
+            -hover() -> 
+            -mousedown() -> 
+            -mouseenter() ->
+            -mouseleave() -> 
+            -mousemove() -> 
+            -mouseout() -> 
+            -mouseover() -> 
+            -mouseup() -> 
+
+        */
+        $(document).ready(function () {
+
+            $("label").click(function (e) {
+                console.log("You clicked the label ");
+            });
+
+            $("#firstInput").dblclick(function (e) {
+                console.log("You click twice the input ");
+            });
+
+            $("span").hover(function (e) {
+                console.log("You hover the span! ");
+            });
+
+            $("#myForm").mousemove(function (e) {
+                console.log("Mouse moving in the form! ");
+            });
+  
+        });
+
+    </script>
+</head>
+<body>
+    <form id="myForm">
+        <label>First Input:</label>
+        <br>
+        <input type="text" id="firstInput" value="">
+        <br>
+        <span>Second Input:</span>
+        <br>
+        <input type="text" id="secondInput" value="">
+        <br>        
+        Third Input:<br>
+        <input type="text" id="thirdInput" value="">
+        <br>
+        <br><br>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
