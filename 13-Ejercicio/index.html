@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <style>
+        .Error{
+            border: solid 1px red;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+           
+            $MyData = [];
+
+            $("#AddMyInfo").on("click", function () {
+                var myTempData = new Object();
+                myTempData.First = $("#firstInput").val();
+                myTempData.Second = $("#secondInput").val();
+                myTempData.Third = $("#thirdInput").val();
+                myTempData.Fourth = $("#fourthInput").val();
+                $MyData.push(myTempData);
+
+                $("input[type='text']").val("");
+            })
+
+        });
+
+        function boomMyData() {
+            $.each($MyData, function(index, object){
+                console.log("The " + index + " object values are: first-" + object.First + " second-" + object.Second + " third-" + object.Third + " fourth-" + object.Fourth);
+            })
+        }
+
+    </script>
+</head>
+<body>
+    <form id="myForm">
+        <label>First Input:</label>
+        <br>
+        <input type="text" id="firstInput" value="">
+        <br>
+        <span>Second Input:</span>
+        <br>
+        <input type="text" id="secondInput" value="">
+        <br>        
+        Third Input:<br>
+        <input type="text" id="thirdInput" value="">
+        <br>        
+        Fourth Input:<br>
+        <input type="text" id="fourthInput" value="">
+        <br>
+        <br><br>
+        <input type="button" id="AddMyInfo" value="Add">
+        <input type="button" value="Show my First Data" onclick="boomMyData()">
+    </form>
+</body>
+</html>

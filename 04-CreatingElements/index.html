@@ -4,14 +4,18 @@
     <title></title>
     <meta charset="utf-8" />
     <script src="./js/jquery-2.1.4.min.js"></script>
+    <style>
+        .boom{
+            color:blue;
+        }
+    </style>
     <script>
         /*
         Ejemplos de manipulacion del DOM:
             -Creating Elements
-                *$("<a/>",{
+                *$("<p/>",{
                     html: "This is a <strong>new</strong> link",
-                    "class":"link",
-                    href: "page.html"
+                    "class":"blue"
                 });
             -Remove Elements
                 *$("selector").remove();
@@ -30,10 +34,9 @@
 
         */
         function createLinkElement() {
-            var element = $("<a/>", {
-                html: "This is a <strong>new</strong> link ",
-                "class": "link",
-                href: "page.html"
+            var element = $("<p/>", {
+                html: "This is a <strong>new</strong> link",
+                "class": "boom"
             });//appendTo("#content");
             $("#content").append(element);
         }
@@ -48,16 +51,23 @@
 
         //Reemplazar
         function reemplazarA() {
-            $("p").replaceAll("a");
+            $("a").replaceAll("p");
         }
+
+
+
+
+
+
+
         function reemplazarCon() {
-            $("p").replaceWith($("a"));
+            $("a").replaceWith($("p"));
         }
     </script>
 </head>
 <body>
     <div id="content">
-        <p>All Links will be here</p>
+        <a href="#">Hola</a>
     </div>
     <div style="margin-top:15px;">
         <button type="button" onclick="createLinkElement()">Create A Element</button>

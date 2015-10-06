@@ -50,19 +50,25 @@
         function insertAfter() {
             $("p").insertAfter("ul");
         }
+
+
+
+
+
         //Clone
         function cloneMyP() {
-            $("p").clone().appendTo("ul");
+            $("p").clone().insertAfter("ul");
         }
     </script>
 </head>
 <body>
-    <div>
+    <div id="content">
         <p>blah blah blah blah blah blah blah</p>
         <p>blah blah blah blah blah blah blah</p>
         <p>blah blah blah blah blah blah blah</p>
         <p>blah blah blah blah blah blah blah</p>
     </div>
+    <p>Bloh</p>
     <div>
         <ul>
             <li>blah</li>
