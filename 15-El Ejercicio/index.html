@@ -93,7 +93,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id="btnCancel" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="button" id="btnSave" class="btn btn-primary" onclick="addMyInfo()">Add Row</button>
                     <button type="button" id="btnEdit" class="btn btn-primary" style="display:none">Edit</button>
                 </div>
@@ -132,8 +132,9 @@
         });
 
         $('#dataTables-example tbody').on('click', '.glyphicon-ok-sign', function () {
+            var myIndex = $(this).closest('td').parent()[0].sectionRowIndex;
             var d = $("#dataTables-example").DataTable()
-            .row()
+            .row(myIndex)
             .data();
 
             $('#exampleModal').modal('show');
@@ -164,12 +165,16 @@
                     $('#exampleModal').modal('hide');
                     $('body').removeClass('modal-open');
 
-                    cleanModalForm();
                 }
 
             })
 
         });
+
+        $('#exampleModal').on('hidden.bs.modal', function () {
+            cleanModalForm();
+        })
+
     });
 
     function cleanModalForm() {
@@ -226,8 +231,9 @@
             $("#modalForm div input[type='text']").val("");
 
             //Both are need to hide the mode successfully
-            $('#exampleModal').modal('hide');
-            $('body').removeClass('modal-open');
+            $("#btnCancel").click();
+           /* $('#exampleModal').modal('hide');
+            $('body').removeClass('modal-open');*/
         }
     }
 
