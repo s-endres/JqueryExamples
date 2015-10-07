@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <style>
+        table{
+            margin-top:25px;
+            border: solid 1px black;
+        }
+
+        table tr th{
+            border: solid 1px black;
+        }
+        
+        table tr td{
+            border: solid 1px black;
+        }
+    </style>
+    <script>
+        /*
+
+            Hacer Demo de como armar una Table con estructura correcta.
+
+        */
+
+
+
+        $(document).ready(function () {
+
+            $("#AddMyInfo").on("click", function () {
+                var myTempData = new Object();
+                myTempData.First = $("#firstInput").val();
+                myTempData.Second = $("#secondInput").val();
+                myTempData.Third = $("#thirdInput").val();
+                myTempData.Fourth = $("#fourthInput").val();
+
+                $("#myTable tbody").append(
+                    "<tr>" +
+                        "<td>" +
+                            $("#firstInput").val() +
+                        "</td>" +
+                        "<td>" +
+                            $("#secondInput").val() +
+                        "</td>" +
+                        "<td>" +
+                            $("#thirdInput").val() +
+                        "</td>" +
+                        "<td>" +
+                            $("#fourthInput").val() +
+                        "</td>" +
+                    "</tr>"
+                    );
+
+                $("#myForm input[type='text']").val("");
+            })
+
+        });
+
+        function boomMyData() {
+            $("#myTable tbody tr").each(function (index, object) {
+                console.log("The " + index + " object values are: first-" + object.cells[0].innerHTML + " second-" + object.cells[1].innerHTML + " third-" + object.cells[2].innerHTML + " fourth-" + object.cells[3].innerHTML);
+            })
+        }
+
+    </script>
+</head>
+<body>
+    <form id="myForm">
+        <label>First Input:</label>
+        <br>
+        <input type="text" id="firstInput" value="">
+        <br>
+        <span>Second Input:</span>
+        <br>
+        <input type="text" id="secondInput" value="">
+        <br>        
+        Third Input:<br>
+        <input type="text" id="thirdInput" value="">
+        <br>        
+        Fourth Input:<br>
+        <input type="text" id="fourthInput" value="">
+        <br>
+        <br><br>
+        <input type="button" id="AddMyInfo" value="Add">
+        <input type="button" value="Show my Table Data" onclick="boomMyData()">
+        <div>
+            <table id="myTable">
+                <thead>
+                    <tr>
+                        <th>First Input</th>
+                        <th>Second Input</th>
+                        <th>Third Input</th>
+                        <th>Fourth Input</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
