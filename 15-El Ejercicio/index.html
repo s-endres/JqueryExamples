@@ -90,6 +90,7 @@
                             <label for="message-text" class="control-label">Fourth input:</label>
                             <input type="text" class="form-control" id="fourthInput">
                         </div>
+                        <input type="text" class="form-control" style="display:none" id="hiddenValue">
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -131,51 +132,54 @@
                 .draw();
         });
 
-        $('#dataTables-example tbody').on('click', '.glyphicon-ok-sign', function () {
-            var myIndex = $(this).closest('td').parent()[0].sectionRowIndex;
-            var d = $("#dataTables-example").DataTable()
-            .row(myIndex)
-            .data();
-
-            $('#exampleModal').modal('show');
-
-            $('#btnEdit').css('display', 'inline');
-            $('#btnSave').css('display', 'none');
-
-            $("#firstInput").val(d[0]);
-            $("#secondInput").val(d[1]);
-            $("#thirdInput").val(d[2]);
-            $("#fourthInput").val(d[3]);
-            
-            $("#btnEdit").on("click", function () {
-                var gotError = validateMyForm();
-                
-                if (gotError == 0) {
-                    d[0] = $("#firstInput").val();
-                    d[1] = $("#secondInput").val();
-                    d[2] = $("#thirdInput").val();
-                    d[3] = $("#fourthInput").val();
-
-                    $("#dataTables-example").DataTable()
-                    .row()
-                    .data(d)
-                    .draw();
-
-                    //Both are need to hide the mode successfully
-                    $('#exampleModal').modal('hide');
-                    $('body').removeClass('modal-open');
-
-                }
-
-            })
-
-        });
-
         $('#exampleModal').on('hidden.bs.modal', function () {
             cleanModalForm();
         })
 
+        $("#btnEdit").on("click", function () {
+            var gotError = validateMyForm();
+            if (gotError == 0) {
+                var index = $("#hiddenValue").val();
+                var d = $("#dataTables-example").DataTable()
+                .row(index)
+                .data();
+
+                d[0] = $("#firstInput").val();
+                d[1] = $("#secondInput").val();
+                d[2] = $("#thirdInput").val();
+                d[3] = $("#fourthInput").val();
+
+                $("#dataTables-example").DataTable()
+                .row(index)
+                .data(d)
+                .draw();
+
+                //Both are need to hide the mode successfully
+                $('#exampleModal').modal('hide');
+                $('body').removeClass('modal-open');
+            }
+        })
+
     });
+
+    function editMyRow(object) {
+        var myIndex = null;
+        myIndex = $(object).closest('td').parent()[0].sectionRowIndex;
+        var d = $("#dataTables-example").DataTable()
+        .row(myIndex)
+        .data();
+
+        $('#exampleModal').modal('show');
+
+        $('#btnEdit').css('display', 'inline');
+        $('#btnSave').css('display', 'none');
+
+        $("#firstInput").val(d[0]);
+        $("#secondInput").val(d[1]);
+        $("#thirdInput").val(d[2]);
+        $("#fourthInput").val(d[3]);
+        $("#hiddenValue").val(myIndex);
+    };
 
     function cleanModalForm() {
         $('#btnEdit').css('display', 'none');
@@ -201,21 +205,6 @@
 
     function addMyInfo() { //Como limpiamos este codigo?
         var gotError = validateMyForm();
-
-        /*if (gotError == 0) {
-            $("#dataTables-example tbody").append(
-                    "<tr>"+
-                        "<td>"+$("#firstInput").val()+"</td>"+
-                        "<td>"+$("#secondInput").val()+"</td>"+
-                        "<td>"+$("#thirdInput").val()+"</td>"+
-                        "<td>"+$("#fourthInput").val()+"</td>"+
-                        "<td>"+
-                            "<span class='glyphicon glyphicon-remove-sign'/> | "+
-                            "<span class='glyphicon glyphicon-ok-sign' />"+
-                        "</td>"+
-                    "</tr>"
-                );
-        }*/
         if (gotError == 0) {
             //We add the row to the dataTable
             $("#dataTables-example").DataTable().row.add([
@@ -224,7 +213,7 @@
                 $("#thirdInput").val(),
                 $("#fourthInput").val(),
                 "<span class='glyphicon glyphicon-remove-sign'></span> <span> | </span> " +
-                "<span class='glyphicon glyphicon-ok-sign'></span>"
+                "<span class='glyphicon glyphicon-ok-sign' onclick='editMyRow(this)'></span>"
             ]).draw(false);
 
             //We clean all input fields
@@ -232,14 +221,12 @@
 
             //Both are need to hide the mode successfully
             $("#btnCancel").click();
-           /* $('#exampleModal').modal('hide');
-            $('body').removeClass('modal-open');*/
         }
     }
 
     function showTableValues() {
         $($("#dataTables-example").DataTable().rows().data()).each(function (index, row) {
-            alert("1st: " + row[0]+" 2nd: "+row[1]+" 3rd: "+row[2]+" 4th: "+row[3]);
+            console.log("1st: " + row[0]+" 2nd: "+row[1]+" 3rd: "+row[2]+" 4th: "+row[3]);
         })
     }
 
