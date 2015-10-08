@@ -22,6 +22,42 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+
+        ************************* Material **********************
+
+        Add row in Datatable
+            *$("#dataTables-example").DataTable()
+                .row
+                .add(Data)
+                .draw();
+
+        Remove row in Datatable
+            *$("#myDataTable").DataTable()
+                .row(rowToRemove)
+                .remove()
+                .draw();
+
+        Edit row in Datatable
+            *$("#myDataTable").DataTable()
+                .row(rowToEdit)
+                .data(Data)
+                .draw();
+
+        Get row index from Datatable
+            *$("#myDataTable").DataTable()
+                .row(Row)
+                .index();
+
+
+
+
+
+
+
+
+
+
     <![endif]-->
     <style>
         .Error{
@@ -186,6 +222,10 @@
         $('#btnEdit').css('display', 'none');
         $('#btnSave').css('display', 'inline');
         $("#modalForm div input[type='text']").val("");
+
+        $("#modalForm div input[type='text']").each(function () {
+            $(this).parent("div").removeClass("has-error");
+        })
     }
 
     function validateMyForm() {
