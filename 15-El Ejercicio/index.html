@@ -163,9 +163,10 @@
     });
 
     function editMyRow(object) {
-        var myIndex = null;
-        myIndex = $(object).closest('td').parent()[0].sectionRowIndex;
-        var d = $("#dataTables-example").DataTable()
+        var table = $("#dataTables-example").DataTable();
+        var myRow = $(object).closest('td').parent()[0];
+        var myIndex = table.row(myRow).index();
+        var d = table
         .row(myIndex)
         .data();
 
@@ -214,11 +215,12 @@
                 $("#fourthInput").val(),
                 "<span class='glyphicon glyphicon-remove-sign'></span> <span> | </span> " +
                 "<span class='glyphicon glyphicon-ok-sign' onclick='editMyRow(this)'></span>"
-            ]).draw(false);
+            ]).draw();
 
             //We clean all input fields
             $("#modalForm div input[type='text']").val("");
 
+            
             //Both are need to hide the mode successfully
             $("#btnCancel").click();
         }
