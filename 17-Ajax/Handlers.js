@@ -3,7 +3,7 @@
     Ajax Event Handlers
         -ajaxSend()
         -ajaxStart()
-        -ajaxStrop()
+        -ajaxStop()
         -ajaxComplete()
         -ajaxSuccess()
         -ajaxError()
