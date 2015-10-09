@@ -26,6 +26,8 @@
 
         ************************* Material **********************
 
+        Google quick search: Datatable ..text
+
         Add row in Datatable
             *$("#dataTables-example").DataTable()
                 .row
@@ -40,7 +42,7 @@
 
         Edit row in Datatable
             *$("#myDataTable").DataTable()
-                .row(rowToEdit)
+                .row(rowToEdit) // rowIndexToEdit
                 .data(Data)
                 .draw();
 
@@ -48,7 +50,9 @@
             *$("#myDataTable").DataTable()
                 .row(Row)
                 .index();
-
+        
+        $('#exampleModal').modal('hide'); //Cerrar modal    
+        $('body').removeClass('modal-open');
 
 
 
