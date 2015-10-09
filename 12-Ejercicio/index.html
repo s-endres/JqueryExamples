@@ -25,7 +25,7 @@
 
         function validateOnlyNumber() {
             $("input[type=text]").each(function () {
-                if (isNaN(parseFloat($.trim(this.value))))
+                if (!$.isNumeric(parseFloat($.trim(this.value))))
                     $(this).addClass("Error");
                 else
                     $(this).removeClass();

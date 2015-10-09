@@ -26,14 +26,13 @@
         */
         $(document).ready(function () {
             $("div").on("click", function () {
-                console.log($(this).text());               
+                console.log($(this).text());
+            })
+            $("#btnSpecial").on("click", function () {
+                $("div[name='boomEspecial']").text("soy especial!")
+                $("div[name='boomEspecial']").trigger("click")
             });
         });
-        
-        function special() {
-            $("div[name='boomEspecial']").text("soy especial!")
-            $("div[name='boomEspecial']").trigger("click")
-        }
 
         function turnOffDiv() {
             $("div").off();
@@ -54,6 +53,6 @@
         <p>BOOM4 a text for Demo</p>
     </div>   
         <button type="button" onclick="turnOffDiv()">Turn off</button>
-        <button type="button" onclick="special()">Special</button>
+        <button type="button" id="btnSpecial" >Special</button>
 </body>
 </html>
